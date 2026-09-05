@@ -1,0 +1,25 @@
+package com.variables.oop_homework;
+//Часть 6. Проверка в main()
+public class Main {
+    public static void main(String[] args) {
+        Shawarma classic = new Shawarma("Классическая", 250, false);
+        Shawarma xl = new Shawarma("XL", 250, true);
+
+        Drink cola = new Drink("Кола", 90);
+
+        Combo combo = new Combo("Шаурма + Кола", 320);
+
+        classic.printReceipt();
+        xl.printReceipt();
+        cola.printReceipt();
+        combo.printReceipt();
+
+        System.out.println(
+                "[СКИДКА] "
+                        + combo.discountPercent()
+                        + "% → "
+                        + combo.applyDiscount(combo.price())
+                        + " руб"
+        );
+    }
+}

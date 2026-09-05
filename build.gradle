@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.matuation'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+tasks.withType(JavaExec) {
+    // Sets the default file encoding to UTF-8
+    jvmArgs += '-Dfile.encoding=UTF-8'
+
+    // Ensures standard output and error streams respect UTF-8 (Required for Java 18+)
+    jvmArgs += '-Dstdout.encoding=UTF-8'
+    jvmArgs += '-Dstderr.encoding=UTF-8'
+}
+
+
